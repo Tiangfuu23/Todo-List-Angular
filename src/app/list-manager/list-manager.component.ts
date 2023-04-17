@@ -19,6 +19,7 @@ export class ListManagerComponent implements OnInit {
   todoList: TodoItem[];
   constructor(private TodoListService: TodoListService) {}
   ngOnInit(): void {
+    // todoList reference to todoList in services
     this.todoList = this.TodoListService.getTodoList();
   }
   // push todo-items to todoList

@@ -14,9 +14,11 @@ export class TodoListService {
   ];
   constructor() {}
   getTodoList(): TodoItem[] {
+    // return todoList (share Data)
     return this.todoList;
   }
   addItem(item: TodoItem): void {
+    // push item to todoList
     this.todoList.push(item);
   }
 }
