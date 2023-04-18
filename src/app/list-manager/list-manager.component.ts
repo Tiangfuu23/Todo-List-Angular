@@ -22,7 +22,7 @@ export class ListManagerComponent implements OnInit {
     // todoList reference to todoList in services
     this.todoList = this.TodoListService.getTodoList();
   }
-  // push todo-items to todoList
+  // push todo-items into todoList
   addItem(title: string): void {
     this.TodoListService.addItem({ title });
   }
