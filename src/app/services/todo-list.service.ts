@@ -38,7 +38,7 @@ export class TodoListService {
     return this.todoList;
   }
   addItem(item: TodoItem): void {
-    console.log(this.todoList, typeof this.todoList);
+    // console.log(this.todoList, typeof this.todoList);
     // push item to todoList
     this.todoList.push(item);
     this.saveList();
