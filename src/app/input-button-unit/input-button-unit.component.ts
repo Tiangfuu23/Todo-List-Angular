@@ -8,9 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
       class="todo-input"
       #inputElementRef
       [value]="title"
-      (keyup.enter)="submitValue(inputElementRef.value)"
+      (keyup.enter)="submitValue(inputElementRef.value.trim())"
     />
-    <button class="btn" (click)="submitValue(inputElementRef.value)">
+    <button class="btn" (click)="submitValue(inputElementRef.value.trim())">
       Save
     </button>
   `,

@@ -9,12 +9,16 @@ import { ListManagerComponent } from './list-manager/list-manager.component';
 // SERVICES IMPORTATION
 import { TodoListService } from './services/todo-list.service';
 import { StorageService } from './services/storage.service';
+import { NavigationComponent } from './navigation/navigation.component';
+import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     AppComponent,
     InputButtonUnitComponent,
     TodoItemComponent,
     ListManagerComponent,
+    NavigationComponent,
+    TableComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [TodoListService, StorageService],

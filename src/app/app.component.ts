@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   // templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   template: `
+    <app-navigation></app-navigation>
     <h1 class="app-title">Welcome to {{ title }}!</h1>
     <app-list-manager></app-list-manager>
   `,

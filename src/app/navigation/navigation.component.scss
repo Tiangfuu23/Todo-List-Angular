@@ -1,0 +1,11 @@
+.nav-item:link,
+.nav-item:visited {
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 12px 20px;
+  transition: all 0.3s;
+}
+.nav-item:hover {
+  color: #555;
+}
