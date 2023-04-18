@@ -12,11 +12,13 @@ const defaultTodoList: TodoItem[] = [
   { title: 'develop app ' },
   { title: 'deploy app' },
 ];
+
 @Injectable({
   providedIn: 'root',
 })
 export class TodoListService {
   private todoList: TodoItem[];
+  private existString: any;
   constructor(private storageService: StorageService) {
     const localTodoList = storageService.getData(todoListStorageKey);
     if (Object.keys(localTodoList).length === 0) {
@@ -25,23 +27,41 @@ export class TodoListService {
     } else {
       this.todoList = localTodoList;
     }
-    // console.log(storageService.getData(todoListStorageKey));
-    // console.log(this.todoList);
-    // console.log({} ?? '1');
+    /***** // Maintain a set that handle duplicated string
+     *******/
+    this.existString = new Set(
+      Array.from(this.todoList, (ele) => {
+        return ele.title;
+      })
+    );
+    console.log(this.existString);
   }
   private saveList(): void {
     this.storageService.setData(todoListStorageKey, this.todoList);
   }
+  private checkValid(item: TodoItem): boolean {
+    // if new item has an emptry string or it was existed in todoList -> return false
+    if (item.title === '' || this.existString.has(item?.title || ''))
+      return false;
+    return true;
+  }
   getTodoList(): TodoItem[] {
-    console.log(this.todoList, typeof this.todoList);
+    // console.log(this.todoList, typeof this.todoList);
     // return todoList (share Data)
     return this.todoList;
   }
   addItem(item: TodoItem): void {
     // console.log(this.todoList, typeof this.todoList);
     // push item to todoList
-    this.todoList.push(item);
-    this.saveList();
+    if (this.checkValid(item)) {
+      this.todoList.push(item);
+      this.saveList();
+      this.existString.add(item.title);
+    } else {
+      console.log(
+        'Item has empty title string or it was existed in to do list'
+      );
+    }
   }
   updateItem(item: TodoItem, changes: TodoItem): void {
     const index = this.todoList.indexOf(item);
@@ -53,5 +73,6 @@ export class TodoListService {
     const index = this.todoList.indexOf(item);
     this.todoList.splice(index, 1);
     this.saveList();
+    this.existString.delete(item.title);
   }
 }
