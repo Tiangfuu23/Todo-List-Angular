@@ -93,11 +93,9 @@ export class TodoListService {
     this.saveList();
   }
   deleteItem(item: TodoItem) {
-    // update deletion time property
-    item.deletionTime = this.date.getTime();
-    //
     const index = this.todoList.indexOf(item);
     this.todoList.splice(index, 1);
+    this.date.updateDateDeletion(item);
     this.saveList();
     this.existString.delete(item.title);
   }

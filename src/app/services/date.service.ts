@@ -44,6 +44,7 @@ export class DateService {
     ];
     // console.log(`${hour}:${minutes}:${second}`);
     return `Time: ${hour}:${minutes}:${second}
+            <pre></pre>
             Day: ${this.getDay()}`;
   }
   // FOR DATE STORAGE
@@ -60,6 +61,12 @@ export class DateService {
     this.dateStorage.push(item);
     this.saveDateStorage();
     console.log(this.dateStorage);
+  }
+  updateDateDeletion(item: TodoItem) {
+    // update deletion time property
+    item.deletionTime = this.getTime();
+    //
+    this.saveDateStorage();
   }
   updateDateInfor(item: TodoItem, newItem: TodoItem): void {
     const index = this.dateStorage.indexOf(item);

@@ -22,10 +22,10 @@ import { TodoItem } from '../interfaces/todo-item';
           <td>Todo 4</td>
         </tr> -->
         <tr *ngFor="let infor of dataSource">
-          <td>{{ infor.title }}</td>
-          <td>{{ infor.creationTime }}</td>
-          <td>{{ infor.completionTime }}</td>
-          <td>{{ infor.deletionTime }}</td>
+          <td [innerHTML]="infor.title"></td>
+          <td [innerHTML]="infor.creationTime"></td>
+          <td [innerHTML]="infor.completionTime"></td>
+          <td [innerHTML]="infor.deletionTime"></td>
         </tr>
       </tbody>
     </table>
