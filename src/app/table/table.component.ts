@@ -8,7 +8,7 @@ import { TodoItem } from '../interfaces/todo-item';
     <table class="table-container">
       <thead>
         <tr>
-          <th>Title</th>
+          <th>Task</th>
           <th>Creation Time</th>
           <th>Completion Time</th>
           <th>Deletion Time</th>
