@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   template: `
     <!-- HEADER SECTION -->
     <nav class="nav-list">
-      <a class="nav-item" href="#">Home</a>
-      <a class="nav-item" href="#">Table</a>
+      <a class="nav-item" routerLink="/">Home</a>
+      <a class="nav-item" routerLink="/Table">Table</a>
     </nav>
   `,
 })

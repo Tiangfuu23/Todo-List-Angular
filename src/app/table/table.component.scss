@@ -1,0 +1,19 @@
+:host {
+  --main-bg-color-table: #000;
+  --main-bg-color: #f1f1f1;
+}
+.table-container {
+  width: 1000px;
+  margin: 0 auto;
+  color: grey;
+  background-color: var(--main-bg-color-table);
+  // border: 2px solid #000;
+}
+td {
+  color: #000;
+  text-align: center;
+  background-color: var(--main-bg-color);
+}
+thead {
+  background-color: var(--main-bg-color);
+}
